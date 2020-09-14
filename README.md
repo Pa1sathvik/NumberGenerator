@@ -103,7 +103,7 @@ Credential details :-- Username ===> "user"
 **##Instructions to Setup and start the application**
 
 1. Install Maven - https://maven.apache.org/install.html
-2. Clone the code or download from git repository - https://github.com/Pa1sathvik/MyRetail.git
+2. Clone the code or download from git repository - https://github.com/Pa1sathvik/NumberGenerator.git
 3. Get the project in to eclipse workspace as "Import existing maven projects". This project is divided in to modules(authentication , webapp, service , repository , restcontroller) which are under NumberGenerator parent project as shown below.
 ![](images/PROJECT.PNG)
 4. Run the class "NumberGeneratorApplication" as Java file which is in WebApp module.
@@ -115,6 +115,15 @@ Credential details :-- Username ===> "user"
 Swagger displays the following information for an API method by default.
 
 ![](images/SWAGGER.PNG)
+
+##**Steps to start the application as JAR file:**
+
+```
+1. Download the project from GIT and run command "mvn clean package" in the project location for project "parent" via cmd prompt.
+2. The above command will generate JAR file with name "NumberGenerator.jar" in webapp/target/ folder.
+3. Execure JAR file using command in Command prompt "java -Xmx4000m -Xms2000m -jar NumberGenerator.jar" which will start the application.
+```
+
 
 
 
