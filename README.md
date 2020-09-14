@@ -20,7 +20,7 @@ Credential details :-- Username ===> "user"
 
 
 	
- **##Post Number Generator Request Information**:
+ **##POST Number Generator Request Information**:
 	
 ###Input: The user/client application can do a POST request to "/api/generate" URI with below mentioned body to generate numbers in a output text file
                   with basic authentication credentials.
@@ -37,8 +37,31 @@ Credential details :-- Username ===> "user"
 
 ###Output: Output returns the UUID generated for the task which is stored in the DB. Sample output below.
 
-{"id":13860428,"name":"The Big Lebowski (Blu-ray) (Widescreen)","current_price":{"value": 13.49,"currency_code":"USD"}}
+{
+    "task": "ad0548e1-f681-11ea-aae2-3b9279d1ecd61"
+}
 
 ###Errors/Validations: Validation of the request body is handled.
 
 ![](images/GETAPI.PNG)
+
+
+**##GET Number Generator Task Status Information**:
+	
+###Input: The user/client application can do a GET request to "/api/tasks/{UUID of the task}/status" URI with UUID as pathparam of the task which status needs to be returned.
+           GET request should be done with basic authentication credentials.
+                  
+             
+
+###Internal Working: When the API GETS the request, internal service class check for status of the Task in Db for the given UUID. There are three possible statuses this API will return "SUCCESS","IN_PROGRESS","ERROR". Internal service class threadpool will pick the task from the db to write output in to a file. After the task is done status will be updated in the DB accordingly for the respective task.
+
+###Output: Output returns the status of the task. Below is the sample output.
+
+{
+    "result": "SUCCESS"
+}
+
+###Errors/Validations: HTTP status 204 No content found will be returned if no UUID is found in the DB.
+
+![](images/GETAPI.PNG)
+
