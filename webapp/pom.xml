@@ -1,0 +1,62 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com</groupId>
+		<artifactId>numbergenerator</artifactId>
+		<version>${project.build.version}</version>
+	</parent>
+	<artifactId>webapp</artifactId>
+	<packaging>jar</packaging>
+	<name>webapp</name>
+	<description>NumberGenerator application--WebApp</description>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<swagger.version>2.9.2</swagger.version>
+		<java.version>1.8</java.version>
+		<swagger-annotations.version>1.5.21</swagger-annotations.version>
+		<swagger-models.version>1.5.21</swagger-models.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<dependencies>
+
+
+
+		<dependency>
+			<groupId>com</groupId>
+			<artifactId>repository</artifactId>
+			<version>${project.build.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com</groupId>
+			<artifactId>restcontroller</artifactId>
+			<version>${project.build.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com</groupId>
+			<artifactId>service</artifactId>
+			<version>${project.build.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com</groupId>
+			<artifactId>authentication</artifactId>
+			<version>${project.build.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.el</artifactId>
+			<version>3.0.1-b08</version>
+		</dependency>
+
+	</dependencies>
+</project>
