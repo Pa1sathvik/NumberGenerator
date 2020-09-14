@@ -40,8 +40,7 @@ public class AnalysisTask extends AbstractTask {
 
 		} catch (Exception e) {
 
-			e.printStackTrace();
-
+              //To Handle exception related details.f
 		}
 		return null;
 	}
