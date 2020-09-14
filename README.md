@@ -43,7 +43,7 @@ Credential details :-- Username ===> "user"
 
 ###Errors/Validations: Validation of the request body is handled.
 
-![](images/GETAPI.PNG)
+![](images/POST.PNG)
 
 
 **##GET Number Generator Task Status Information**:
@@ -63,7 +63,7 @@ Credential details :-- Username ===> "user"
 
 ###Errors/Validations: HTTP status 204 No content found will be returned if no UUID is found in the DB.
 
-![](images/GETAPI.PNG)
+![](images/GET1.PNG)
 
 
 **##GET Number Generator Task Result Information**:
@@ -88,7 +88,7 @@ Credential details :-- Username ===> "user"
     "result": "Incorrect uuid passed"
 }
 
-![](images/GETAPI.PNG)
+![](images/GET2.PNG)
 
 
 
