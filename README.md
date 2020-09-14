@@ -30,7 +30,7 @@ Credential details :-- Username ===> "user"
                "step":"2"
               }
 
-###Internal Working: When the API posts the request, details like step , goal are stored in H2 runtime database in a table "task_detail" with Status as 'NEW'. UUID is generated for 
+###Internal Working: When the API posts the request, details like step , goal are stored in H2 in-memory database in a table "task_detail" with Status as 'NEW'. UUID is generated for 
                       the request and stored in the db.Also stores rowCreated , rowUpdated time in the database for task. Like this for multiple requests UUID is generated and stored in the DB with Status "NEW". 
                       A scheduler service is up and running in the application which has thread pool which takes these tasks from DB with status 'NEW' to write numbers in to a output txt file in /tmp directory
                       based on the goal and step of the task. Once the process of number generation is done for each task in task_details table , status of the task is changed to 'SUCCESS' other wise 'ERROR'. Scheduler service checks for all 'NEW' status tasks in the DB to start processing of the tasks. Scheduler runs with a fixeddelay of 5 seconds after each successful tasks process completion.
@@ -89,6 +89,31 @@ Credential details :-- Username ===> "user"
 }
 
 ![](images/GETAPI.PNG)
+
+
+
+**##Technologies Used**:
+
+1. Spring Boot - https://projects.spring.io/spring-boot/
+2. H2DB(In memory database.) - https://www.h2database.com/html/main.html
+3. Swagger - http://swagger.io/
+4. Maven - https://mvnrepository.com/
+
+**##Instructions to Setup and start the application**
+
+1.Install Maven - https://maven.apache.org/install.html
+2.Clone the code or download from git repository - https://github.com/Pa1sathvik/MyRetail.git
+3.Get the project in to eclipse workspace as "Import existing maven projects". This project is divided in to modules(authentication , webapp, service , repository , restcontroller) which are under NumberGenerator parent project as shown below.
+![](images/ProjectStructure.PNG)
+4.Run the class "NumberGeneratorApplication" as Java file which is in WebApp module.
+5.Now application will be up and running on port number 8090 as server port is mentioned as 8090 in application.properties.
+6.Now start testing API's as shown in the above screen shot. Use POSTMAN for testing of REST API's. All API's should be used with basic authentication.
+
+
+##**Swagger UI:**
+Swagger displays the following information for an API method by default.
+
+![](images/SwaggerUI.PNG)
 
 
 
