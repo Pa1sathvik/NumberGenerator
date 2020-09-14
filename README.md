@@ -105,7 +105,7 @@ Credential details :-- Username ===> "user"
 1. Install Maven - https://maven.apache.org/install.html
 2. Clone the code or download from git repository - https://github.com/Pa1sathvik/MyRetail.git
 3. Get the project in to eclipse workspace as "Import existing maven projects". This project is divided in to modules(authentication , webapp, service , repository , restcontroller) which are under NumberGenerator parent project as shown below.
-![](images/ProjectStructure.PNG)
+![](images/PROJECT.PNG)
 4. Run the class "NumberGeneratorApplication" as Java file which is in WebApp module.
 5. Now application will be up and running on port number 8090 as server port is mentioned as 8090 in application.properties.
 6. Now start testing API's as shown in the above screen shot. Use POSTMAN for testing of REST API's. All API's should be used with basic authentication.
@@ -114,7 +114,7 @@ Credential details :-- Username ===> "user"
 ##**Swagger UI:**
 Swagger displays the following information for an API method by default.
 
-![](images/SwaggerUI.PNG)
+![](images/SWAGGER.PNG)
 
 
 
