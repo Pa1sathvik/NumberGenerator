@@ -33,7 +33,7 @@ Credential details :-- Username ===> "user"
 ###Internal Working: When the API posts the request, details like step , goal are stored in H2 runtime database in a table "task_detail" with Status as 'NEW'. UUID is generated for 
                       the request and stored in the db.Also stores rowCreated , rowUpdated time in the database for task. Like this for multiple requests UUID is generated and stored in the DB with Status "NEW". 
                       A scheduler service is up and running in the application which has thread pool which takes these tasks from DB with status 'NEW' to write numbers in to a output txt file in /tmp directory
-                      based on the goal and step of the task. Once the process of number generation is done for each task in task_details table , status of the task is changed to 'SUCCESS' other wise 'ERROR'.
+                      based on the goal and step of the task. Once the process of number generation is done for each task in task_details table , status of the task is changed to 'SUCCESS' other wise 'ERROR'. Scheduler service checks for all 'NEW' status tasks in the DB to start processing of the tasks. Scheduler runs with a fixeddelay of 5 seconds after each successful tasks process completion.
 
 ###Output: Output returns the UUID generated for the task which is stored in the DB. Sample output below.
 
@@ -64,4 +64,31 @@ Credential details :-- Username ===> "user"
 ###Errors/Validations: HTTP status 204 No content found will be returned if no UUID is found in the DB.
 
 ![](images/GETAPI.PNG)
+
+
+**##GET Number Generator Task Result Information**:
+	
+###Input: The user/client application can do a GET request to "/api/tasks/{UUID of the task}?action=get_numlist" URI with UUID as pathparam of the task which result needs to be returned and with queryparam as action = get_numlist.GET request should be done with basic authentication credentials.
+                  
+             
+
+###Internal Working: When the API GETS the request, internal service class checks the DB for filepath for the UUId given. Then content from the file is read and sent back  as result to the API. The file contains integers which are written in descending order based on the POST request. These integers will be sent as comma seperated string to the API.
+
+
+
+###Output: Output returns the result of the task. Below is the sample output.
+
+{
+    "result": "10,8,6,4,2,0"
+}
+
+###Errors/Validations: HTTP status 400 BAD request will be returned if no UUID is found in the DB. Sample result in this case. Also throws 400 is service logic of file read fails.
+
+{
+    "result": "Incorrect uuid passed"
+}
+
+![](images/GETAPI.PNG)
+
+
 
